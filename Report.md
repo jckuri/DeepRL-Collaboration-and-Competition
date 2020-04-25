@@ -45,19 +45,19 @@ The Project 2 goes beyond DQN. Because it includes new Deep RL techniques:
 Moreover, the DDPG Agent uses 2 deep neural networks to represent complex continuous states. 1 neural network for the actor and 1 neural network for the critic.
 
 The neural network for the actor has:
-- A linear fully-connected layer of dimensions state_size=33 and fc1_units=128;
+- A linear fully-connected layer of dimensions state_size=`state_size` and fc1_units=128;
 - The ReLu function;
 - Batch normalization;
 - A linear fully-connected layer of dimensions fc1_units=128 and fc2_units=128;
 - The ReLu function;
-- A linear fully-connected layer of dimensions fc2_units=128 and action_size=4;
+- A linear fully-connected layer of dimensions fc2_units=128 and action_size=`action_size`;
 - The tanh function.
 
 The neural network for the critic has:
-- A linear fully-connected layer of dimensions state_size=33 and fcs1_units=128;
+- A linear fully-connected layer of dimensions state_size=`state_size` and fcs1_units=128;
 - The ReLu function;
 - Batch normalization;
-- A linear fully-connected layer of dimensions fcs1_units=128 + 4 and fc2_units=128;
+- A linear fully-connected layer of dimensions fcs1_units=128 + `action_size` and fc2_units=128;
 - The ReLu function;
 - A linear fully-connected layer of dimensions fc2_units=128 and output_size=1;
 

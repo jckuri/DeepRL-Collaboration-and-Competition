@@ -3,7 +3,7 @@ Project 3 "Collaboration and Competition" of the Deep Reinforcement Learning nan
 
 ## Learning Algorithm
 
-My `Project 2 - Continuous Control` <https://github.com/jckuri/DeepRL-Continuous-Control> was a total sucess because I solved it in just 168 episodes! Given that successful experience, I decided to reuse the code and hyperparameters of my DDPG Agent in order to build my new MADDPG Agent for Project 3.
+My `Project 2 - Continuous Control` <https://github.com/jckuri/DeepRL-Continuous-Control> was a total sucess because I solved the problem in just 168 episodes! Given that successful experience, I decided to reuse the code and hyperparameters of my DDPG Agent in order to build my new MADDPG Agent for Project 3.
 
 Given the incremental nature of this project, the explanation of the learning algorithm is divided in 4 incremental parts:
 1. Introduction to Deep Reinforcement Learning;

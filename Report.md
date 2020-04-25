@@ -1,15 +1,19 @@
-# DeepRL-Navigation
-Project 2 "Continuous Control" of the Deep Reinforcement Learning nanodegree.
+# DeepRL-Collaboration-and-Competition
+Project 3 "Collaboration and Competition" of the Deep Reinforcement Learning nanodegree.
 
 ## Learning Algorithm
 
-To be honest, I copied, pasted, and slightly modified the source code of the Udacity repository https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum. Because Udacity recommends us to do it in `Part 3: Policy-Based Methods; Project: Continuous Control; 7. Not sure where to start?`
+Since my `Project 2 - Continuous Control` <https://github.com/jckuri/DeepRL-Continuous-Control> was a total sucess (I solved it in just 168 episodes!), I decided to reuse the code and hyperparameters of my DDPG Agent in order to build my new MADDPG Agent for Project 3.
 
-<p align="center">
- <img src="/images/not-sure-where-to-start.png" width="50%">
-</p>
+Given the incremental nature of this project, the explanation of the learning algorithm is divided in 3 incremental parts:
+1. Introduction to Deep Reinforcement Learning;
+2. Details of my DDPG implementation;
+3. How I modified the Udacity's DDPG Pendulum to make this project work so well;
+4. How I implemented my MADDPG Agent.
 
-I copied the solution code because I'm sick of Covid-19. Fortunately, I'm recovering. I feel very tired. Otherwise I'm an expert in Deep Reinforcement Learning as you can see in the seminars I gave last year:
+### Part 1. Introduction to Deep Reinforcement Learning
+
+I'm an expert in Deep Reinforcement Learning as you can see in the seminars I gave last year:
 
 Webinar on Deep Reinforcement Learning (Secure & Private AI Scholarship Challenge)<br/>
 https://youtu.be/oauLZG9nAX0
@@ -28,7 +32,9 @@ In my presentation at http://bit.do/DeepRL, there is a great explanation of the 
  <img src="/images/math.png">
 </p>
 
-However, this Project 2 goes beyond DQN. Because it includes new Deep RL techniques:
+### Part 2. Details of my DDPG implementation
+
+The Project 2 goes beyond DQN. Because it includes new Deep RL techniques:
 - **Actor-critic method** in which the actor computes policies to act and the critic helps to correct the policies based on its Q-values;
 - **Deep Deterministic Policy Gradients (DDPG)**, which is similar to actor-critic methods but it differs because the actor produces a deterministic policy instead of stochastic policies; the critic evaluates such deterministic policy; and the actor is trained by using the deterministic policy gradient algorithm;
 - **Two sets of Target and Local Networks**, which is a way to implement the double buffer technique in order to avoid oscillations caused by overestimated values;
@@ -80,7 +86,7 @@ LR_CRITIC = 2e-4
 WEIGHT_DECAY = 0        
 ```
 
-### How I modified the Udacity's DDPG Pendulum to make this project work so well
+### Part 3. How I modified the Udacity's DDPG Pendulum to make this project work so well
 
 I copied, pasted, and slightly modified the source code of the Udacity repository https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum.
 
@@ -191,6 +197,10 @@ Finally, I found a bug in the Udacity's DDPG Pendulum project. After correcting 
         self.state = x + dx
         return self.state
 ```
+
+### Part 4. How I implemented my MADDPG Agent
+
+Hello
 
 ## Plot of Rewards
 

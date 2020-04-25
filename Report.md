@@ -226,7 +226,7 @@ The replay buffer and the method step were deleted from the DDPG module. Now bot
         self.losses = (np.mean(critic_losses), np.mean(actor_losses))
 ```
 
-In the Jupyter notebook Tennis.ipynb
+In the Jupyter notebook Tennis.ipynb, I collected all hyperparameters into 1 object and such object is passed to all the corresponding classes. And such classes needed some modifications to deal with that new object of hyperparameters. Previously, hyperparameters were passed as separate parameters through functions. Now all hyperparameters are passed in a single object.
 
 ```
 hp = HyperParameters()
@@ -245,6 +245,8 @@ hp.weight_decay = 0        # L2 weight decay
 hp.print_every = 100
 hp.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 ```
+
+Another important modification was the training and testing loops. In the single agent case, we had code like this `state = env_info.vector_observations[0]` that takes the first observation for an unique agent. Now we have code like this `states = env_info.vector_observations` that takes the whole list of observations. In general, all aspects now have 2 agents instead of just 1 agent.
 
 ```
 def train_maddpg(n_episodes = 50000):
@@ -283,6 +285,8 @@ def train_maddpg(n_episodes = 50000):
 
 scores, avg_scores = train_maddpg()
 ```
+
+After adapting all the code to make it work for multiple agents, the code worked perfectly and was solved (score >= 0.5) in the very first attempt. I was surprised. Then I changed both learning rates (actor and critic) to 1e-4. And it worked even beter.
 
 ## Plot of Rewards
 

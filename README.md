@@ -35,11 +35,11 @@ The environment is considered solved, when the average (over 100 episodes) of th
 Follow the instructions in this link in order to install all the dependencies required to run this project:<br/>
 https://github.com/udacity/deep-reinforcement-learning#dependencies
 
-Download the `Project 2 - Continuous Control` into your computer:<br/>
-https://github.com/jckuri/DeepRL-Continuous-Control
+Download the `Project 3 - Collaboration and Competition` into your computer:<br/>
+https://github.com/jckuri/DeepRL-Collaboration-and-Competition
 
 Follow the instructions in this link in order to install the Unity environment required to run this project:<br/>
-https://github.com/udacity/deep-reinforcement-learning/tree/master/p2_continuous-control#getting-started
+https://github.com/udacity/deep-reinforcement-learning/tree/master/p3_collab-compet#getting-started
 
 The easiest way to install the requirements is to use the file [requirements.txt](python/requirements.txt)
 ```
@@ -61,24 +61,24 @@ ipykernel
 
 Execute this command in order to install the software specified in `requirements.txt`<br/>
 ```pip -q install ./python```<br/>
-This command is executed at the beginning of the Jupyter notebook [Continuous_Control.ipynb](Continuous_Control.ipynb).
+This command is executed at the beginning of the Jupyter notebook [Tennis.ipynb](Tennis.ipynb).
 
 If you have troubles when installing this project, you can write me at:<br/>
 https://www.linkedin.com/in/jckuri/
 
 ## Instructions
 
-Follow the instructions in [Continuous_Control.ipynb](Continuous_Control.ipynb) to get started with training your own agent!
+Follow the instructions in [Tennis.ipynb](Tennis.ipynb) to get started with training your own agents!
 
 To run the Jupyter notebook, use the following Unix command inside the project's directory:
 
 ```
-jupyter notebook Continuous_Control.ipynb
+jupyter notebook Tennis.ipynb
 ```
 
 To run all the cells in the Jupyter notebook again, go to the Jupyter notebook menu, and click on `Kernel` => `Restart & Run All`.
 
-At the end of the Jupyter notebook, there is a space in which you can program your own implementation of this DDPG Agent.
+At the end of the Jupyter notebook, there is a space in which you can program your own implementation of this MADDPG Agent.
 
 ## Report
 

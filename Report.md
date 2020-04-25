@@ -306,7 +306,7 @@ Episode 775	Average Score: 0.5023
 Environment solved in 775 episodes!	Average Score: 0.5023
 ```
 
-The rubric asks to obtain an average score of 0.5 or more for 100 episodes. The best model was saved. In the graph, the blue lines connect the scores in each episode. Whereas the red lines connect the average scores in each episode.
+The rubric asks to obtain an average score of 0.5 or more for 100 episodes. The best model was saved. In the graph, the blue lines connect the scores in each episode. Whereas the red lines connect the average scores in each episode. **The problem was solved in just 775 episodes, which is awesome!**
 
 ![Plot of rewards (training)](/images/plot-of-rewards-training.png)
 

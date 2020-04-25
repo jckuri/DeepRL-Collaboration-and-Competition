@@ -1,4 +1,4 @@
-# DeepRL-Continuous-Control
+# DeepRL-Collaboration-and-Competition
 Project 3 "Collaboration and Competition" of the Deep Reinforcement Learning nanodegree.
 
 ## Training Code

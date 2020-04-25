@@ -292,7 +292,7 @@ After adapting all the code to make it work for multiple agents, the code worked
 
 ## Plot of Rewards
 
-The MADDPG Agents were trained for `775` episodes. In each episode, the agents are trained from the begining to the end of the simulation. Some episodes are larger and some episodes are shorter, depending when the ending condition of each episode appears. Each episode has many iterations. In each iteration, the DDPG Agents are trained with `BATCH_SIZE=128` experience tuples (SARS).
+The DDPG Agents were trained for `775` episodes. In each episode, the agents are trained from the begining to the end of the simulation. Some episodes are larger and some episodes are shorter, depending when the ending condition of each episode appears. Each episode has many iterations. In each iteration, the DDPG Agents are trained with `BATCH_SIZE=128` experience tuples (SARS).
 
 ```
 Episode 100	Average Score: 0.0110

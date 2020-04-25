@@ -1,20 +1,20 @@
 # DeepRL-Continuous-Control
-Project 2 "Continuous Control" of the Deep Reinforcement Learning nanodegree.
+Project 3 "Collaboration and Competition" of the Deep Reinforcement Learning nanodegree.
 
 ## Training Code
 
-You can find the training code here: [Continuous_Control.ipynb](Continuous_Control.ipynb), [ddpg_agent.py](ddpg_agent.py), and [model.py](model.py).
+You can find the training code here: [Tennis.ipynb](Tennis.ipynb), [ddpg.py](ddpg.py), [maddpg.py](maddpg.py), [model.py](model.py), [ounoise.py](ounoise.py), and [replay_buffer.py](replay_buffer.py).
 
 ## Saved Model Weights
 
-You can find the saved model weights here: [checkpoint_actor.pth](checkpoint_actor.pth) and [checkpoint_critic.pth](checkpoint_critic.pth).
+You can find the saved model weights here: [checkpoint_actor_0.pth](checkpoint_actor_0.pth), [checkpoint_actor_1.pth](checkpoint_actor_1.pth), [checkpoint_critic_0.pth](checkpoint_critic_0.pth), and [checkpoint_critic_1.pth](checkpoint_critic_1.pth).
 
 ## Project Details
 
 For this project, you will work with the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment.
 
 <p align="center">
- <img src="/images/reacher.gif">
+ <img src="/images/collaborative-pingpong.gif">
 </p>
 
 In this environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.

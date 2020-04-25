@@ -200,7 +200,89 @@ Finally, I found a bug in the Udacity's DDPG Pendulum project. After correcting 
 
 ### Part 4. How I implemented my MADDPG Agent
 
-Hello
+The replay buffer and the method step were deleted from the DDPG module. Now both concepts are centralized in the MADDPG class:
+
+```
+    def __init__(self, hp):
+        self.hp = hp
+        self.memory = replay_buffer.ReplayBuffer(hp)
+        self.agents = [ddpg.Agent(self.hp) for _ in range(self.hp.num_agents)]
+        self.losses = (0., 0.)
+```
+
+```
+
+    def step(self, states, actions, rewards, next_states, dones):
+        for state, action, reward, next_state, done in zip(states, actions, rewards, next_states, dones):
+            self.memory.add(state, action, reward, next_state, done)
+        if len(self.memory) < self.hp.batch_size: return
+        critic_losses = []
+        actor_losses = []
+        for agent in self.agents:
+            experiences = self.memory.sample()
+            critic_loss, actor_loss = agent.learn(experiences)
+            critic_losses.append(critic_loss)
+            actor_losses.append(actor_loss)
+        self.losses = (np.mean(critic_losses), np.mean(actor_losses))
+```
+
+In the Jupyter notebook Tennis.ipynb
+
+```
+hp = HyperParameters()
+
+hp.num_agents = num_agents
+hp.state_size = 24
+hp.action_size = 2
+hp.random_seed = 222
+hp.buffer_size = int(1e5)  # replay buffer size
+hp.batch_size = 128        # minibatch size
+hp.gamma = 0.99            # discount factor
+hp.tau = 1e-3              # for soft update of target parameters
+hp.lr_actor = 1e-4 #2e-4         # learning rate of the actor # ADDED
+hp.lr_critic = 1e-4 #2e-4        # learning rate of the critic # ADDED
+hp.weight_decay = 0        # L2 weight decay
+hp.print_every = 100
+hp.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+```
+
+```
+def train_maddpg(n_episodes = 50000):
+    scores = []
+    scores_deque = deque(maxlen = 100)
+    avg_scores = []
+    for iteration in range(1, n_episodes + 1):
+        env_info = env.reset(train_mode = True)[brain_name]
+        states = env_info.vector_observations
+        maddpg.reset()
+        score = np.zeros(hp.num_agents)
+        while True:
+            actions = maddpg.act(states)
+            env_info = env.step(actions)[brain_name]
+            next_states = env_info.vector_observations
+            rewards = env_info.rewards
+            dones = env_info.local_done
+            maddpg.step(states, actions, rewards, next_states, dones)
+            score += rewards
+            states = next_states
+            if np.any(dones): break
+        max_score = np.max(score)
+        scores.append(max_score)
+        scores_deque.append(max_score)
+        avg_score = np.mean(scores_deque) 
+        avg_scores.append(avg_score)
+        print('\rEpisode {}\tAverage Score: {:.4f}'.format(iteration, avg_score), end="")
+        if iteration % hp.print_every == 0:
+            print('\rEpisode {}\tAverage Score: {:.4f}'.format(iteration, avg_score))
+            save_weights()
+        if avg_score >= 0.5:
+            print('\nEnvironment solved in {:d} episodes!\tAverage Score: {:.4f}'.format(iteration, avg_score))
+            save_weights()
+            break
+    return scores, avg_scores
+
+scores, avg_scores = train_maddpg()
+```
 
 ## Plot of Rewards
 

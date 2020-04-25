@@ -200,6 +200,8 @@ Finally, I found a bug in the Udacity's DDPG Pendulum project. After correcting 
 
 ### Part 4. How I implemented my MADDPG Agent
 
+First, I put each class in a separate file, resulting in more Python files: Tennis.ipynb, ddpg.py, maddpg.py, model.py, ounoise.py, and replay_buffer.py.
+
 The replay buffer and the method step were deleted from the DDPG module. Now both concepts are centralized in the MADDPG class:
 
 ```
@@ -290,44 +292,80 @@ After adapting all the code to make it work for multiple agents, the code worked
 
 ## Plot of Rewards
 
-The DDPG Agent was trained for `168` episodes. In each episode, the agent is trained from the begining to the end of the simulation. Some episodes are larger and some episodes are shorter, depending when the ending condition of each episode appears. Each episode has many iterations. In each iteration, the DDPG Agent is trained with `BATCH_SIZE=128` experience tuples (SARS).
+The MADDPG Agents were trained for `775` episodes. In each episode, the agents are trained from the begining to the end of the simulation. Some episodes are larger and some episodes are shorter, depending when the ending condition of each episode appears. Each episode has many iterations. In each iteration, the DDPG Agents are trained with `BATCH_SIZE=128` experience tuples (SARS).
 
 ```
-Episode 100	Average Score: 8.74
-Episode 168	Average Score: 30.01
-Environment solved in 168 episodes!	Average Score: 30.01
+Episode 100	Average Score: 0.0110
+Episode 200	Average Score: 0.0060
+Episode 300	Average Score: 0.0432
+Episode 400	Average Score: 0.0523
+Episode 500	Average Score: 0.0455
+Episode 600	Average Score: 0.0664
+Episode 700	Average Score: 0.1158
+Episode 775	Average Score: 0.5023
+Environment solved in 775 episodes!	Average Score: 0.5023
 ```
 
-The rubric asks to obtain an average score of 30 for 100 episodes. The best model was saved. In the graph, the blue lines connect the scores in each episode. Whereas the red lines connect the average scores in each episode.
+The rubric asks to obtain an average score of 0.5 or more for 100 episodes. The best model was saved. In the graph, the blue lines connect the scores in each episode. Whereas the red lines connect the average scores in each episode.
 
 ![Plot of rewards (training)](/images/plot-of-rewards-training.png)
 
-After training, the saved model was loaded and tested for 20 episodes. Here are the results of such testing. You can see that, on average, the scores are greater than 30. 
+After training, the saved model was loaded and tested for 50 episodes. Here are the results of such testing. You can see that, on average, the scores are greater than 0.5. 
 
 ```
-Episode 1	Score: 38.63
-Episode 2	Score: 36.70
-Episode 3	Score: 39.03
-Episode 4	Score: 34.90
-Episode 5	Score: 38.80
-Episode 6	Score: 39.48
-Episode 7	Score: 35.97
-Episode 8	Score: 36.33
-Episode 9	Score: 35.88
-Episode 10	Score: 34.23
-Episode 11	Score: 35.06
-Episode 12	Score: 37.35
-Episode 13	Score: 34.50
-Episode 14	Score: 33.27
-Episode 15	Score: 38.15
-Episode 16	Score: 33.54
-Episode 17	Score: 15.25
-Episode 18	Score: 32.18
-Episode 19	Score: 31.91
-Episode 20	Score: 36.68
+Episode 1	Score: 1.1000
+Episode 2	Score: 2.6000
+Episode 3	Score: 0.6000
+Episode 4	Score: 0.1000
+Episode 5	Score: 0.0000
+Episode 6	Score: 1.0000
+Episode 7	Score: 1.4000
+Episode 8	Score: 0.6000
+Episode 9	Score: 0.1000
+Episode 10	Score: 0.4000
+Episode 11	Score: 0.2000
+Episode 12	Score: 0.3000
+Episode 13	Score: 0.1000
+Episode 14	Score: 1.4000
+Episode 15	Score: 2.6000
+Episode 16	Score: 2.1000
+Episode 17	Score: 2.3900
+Episode 18	Score: 0.3000
+Episode 19	Score: 0.5000
+Episode 20	Score: 0.2000
+Episode 21	Score: 0.1000
+Episode 22	Score: 0.4000
+Episode 23	Score: 0.1000
+Episode 24	Score: 2.3000
+Episode 25	Score: 2.6000
+Episode 26	Score: 2.7000
+Episode 27	Score: 0.3000
+Episode 28	Score: 2.6000
+Episode 29	Score: 0.9900
+Episode 30	Score: 1.6000
+Episode 31	Score: 0.1000
+Episode 32	Score: 1.7000
+Episode 33	Score: 1.6900
+Episode 34	Score: 1.9900
+Episode 35	Score: 2.6000
+Episode 36	Score: 1.3000
+Episode 37	Score: 0.4000
+Episode 38	Score: 1.7000
+Episode 39	Score: 2.2000
+Episode 40	Score: 1.3000
+Episode 41	Score: 2.6000
+Episode 42	Score: 1.8000
+Episode 43	Score: 1.4000
+Episode 44	Score: 1.8000
+Episode 45	Score: 1.9000
+Episode 46	Score: 2.6000
+Episode 47	Score: 2.7000
+Episode 48	Score: 2.6000
+Episode 49	Score: 0.2000
+Episode 50	Score: 2.6000
 ```
 
-In the graph, the blue lines connect the scores in each episode. There is only 1 error at episode `17` in which the score drops to `15.25`. All the other scores are greater than `30`.
+In the graph, the blue lines connect the scores in each episode. The red horizontal line represents the value of 0.5. Notice that the big majority of points are greater than the red horizontal line of 0.5.
 
 ![Plot of rewards (testing)](/images/plot-of-rewards-testing.png)
 
